@@ -1,10 +1,12 @@
-import { useHelper } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Physics } from "@react-three/cannon";
+import { softShadows, useHelper } from "@react-three/drei";
 import { useRef } from "react";
-import { PointLightHelper } from "three";
-import Cube from "./Box";
+import { DirectionalLightHelper, PointLightHelper } from "three";
 import GizmoHelperComp from "./GizmoHelper";
-import Plane from "./Plane";
+import Ground from "./Ground";
+import Sphere from "./Sphere";
+
+softShadows();
 
 export default function App() {
 
@@ -14,12 +16,30 @@ export default function App() {
 
     return (
         <>
-            <color attach="background" args={['lightblue']} />
+            <color attach="background" args={['#99ffaa']} />
             <GizmoHelperComp />
-            <gridHelper />
-            <pointLight ref={ref} position={[5, 5, 2]} angle={0.3} penumbra={1} intensity={2} castShadow />
-            <Plane rotation={[-Math.PI / 2, 0, 0]} />
-            <Cube position={[0, 0.510, 0]} />
+            {/* <gridHelper /> */}
+            <ambientLight intensity={0.1}/>
+            <pointLight ref={ref} position={[10, 5, 12]} intensity={2} color={'lightblue'} castShadow />
+            {/* <Plane rotation={[-Math.PI / 2, 0, 0]} /> */}
+            {/* <Cube position={[0, 0.5, 0]} /> */}
+            <Physics>
+                <Sphere position={[0, 10, 0]} key={1} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={2} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={3} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={2} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={3} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={2} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={3} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={2} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={3} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={2} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={3} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={2} />
+                <Sphere position={[Math.random(), Math.random() * 100, Math.random()]} key={3} />
+                <Ground />
+            </Physics>
+
         </>
     );
 }

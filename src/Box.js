@@ -10,7 +10,7 @@ function Cube(props) {
             receiveShadow
             castShadow
         >
-            <boxBufferGeometry attach="geometry" />
+            <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
             <meshLambertMaterial attach="material" color="hotpink" />
         </mesh>
     )
