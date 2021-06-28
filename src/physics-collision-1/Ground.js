@@ -14,7 +14,7 @@ export default function Ground(props) {
         <>
             <mesh ref={ref} receiveShadow>
                 <boxBufferGeometry attach="geometry" args={[10, 10]} />
-                <meshPhongMaterial attach="material" color={'#ffffff'}/>
+                <meshPhongMaterial attach="material" color={'#0f2f00'}/>
             </mesh>
         </>
     )
