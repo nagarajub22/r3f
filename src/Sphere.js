@@ -1,7 +1,7 @@
 import { useSphere } from "@react-three/cannon";
 
 export default function Sphere(props) {
-    const [ref] = useSphere(() => ({ mass: 0.5, args: 0.5, ...props }));
+    const [ref] = useSphere(() => ({ mass: 1, args: 0.5, ...props }));
 
     return (
         <mesh
